@@ -42,7 +42,7 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 	public boolean add(T data) {
 		if(this.data == data){
 			return false;
-		}else if(this.data.compareTo(data) < 0){
+		}else if(this.data.compareTo(data) > 0){
 			if(left == null){
 				left = new BinarySearchTreeNode<T>(data);
 				return true;
@@ -100,7 +100,7 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 		if(this.data == data){
 			return true;
 		}else{
-			if(this.data.compareTo(data) < 0){
+			if(this.data.compareTo(data) > 0){
 				if(left == null){
 					return false;
 				}else{
@@ -150,11 +150,11 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 	 * @return str�ngrepresentationen f�r det (sub)tr�d som noden utg�r root i.
 	 */
 	public String toString() {
-		String retval, sleft;
-		retval = (right == null ? "" : right.toString());
+		String retval, sright;
+		retval = (left == null ? "" : left.toString());
 		retval += (retval != "" && data != "" ? ", " + data : "" + data);
-		sleft = (left == null ? "" :  left.toString());
-		retval += (retval != "" && sleft != "" ? ", " + sleft : "" + sleft);
+		sright = (right == null ? "" :  right.toString());
+		retval += (retval != "" && sright != "" ? ", " + sright : "" + sright);
 		
 		return retval;
 	}
