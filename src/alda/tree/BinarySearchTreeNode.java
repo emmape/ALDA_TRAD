@@ -96,7 +96,23 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 	 *         root i.
 	 */
 	public boolean contains(T data) {
-		return false;
+		if(this.data == data){
+			return true;
+		}else{
+			if(this.data.compareTo(data) < 0){
+				if(left == null){
+					return false;
+				}else{
+					return contains(left.data);
+				}
+			}else{
+				if(right == null){
+					return false;
+				}else{
+					return contains(right.data);
+				}
+			}
+		}
 	}
 
 	/**
@@ -105,7 +121,7 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 	 * @return det totala antalet noder i det (sub)tr�d som noden utg�r root i.
 	 */
 	public int size() {
-		return 0;
+		return 1 + (left == null ? 0 : left.size()) + (right == null ? 0 : right.size());
 	}
 
 	/**
@@ -114,7 +130,11 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 	 * @return djupet.
 	 */
 	public int depth() {
-		return -1;
+		if(left == null && right == null){
+			return 1;
+		}else{
+			return (left == null ? 0 : left.size()) + (right == null ? 0 : right.size());
+		}
 	}
 
 	/**
