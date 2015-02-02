@@ -20,6 +20,7 @@ package alda.tree;
  * @param <T>
  */
 public class BinarySearchTreeNode<T extends Comparable<T>> {
+	BinarySearchTreeNode root;
 
 	private T data;
 	private BinarySearchTreeNode<T> left;
@@ -61,10 +62,15 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 	 * Privat hj�lpmetod som �r till nytta vid borttag. Ni beh�ver inte
 	 * skriva/utnyttja denna metod om ni inte vill.
 	 * 
-	 * @return det minsta elementet i det (sub)tr�d som noden utg�r root i.
+	 * @return det minsta elementet i det (sub)tråd som noden utgör root i.
 	 */
 	private T findMin() {
-		return null;
+		if(left!=null){
+			return left.findMin();
+		}else{
+			return this.data;
+		}
+	
 	}
 
 	/**
@@ -76,6 +82,7 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 	 * @return en referens till nodens subtr�d efter borttaget.
 	 */
 	public BinarySearchTreeNode<T> remove(T data) {
+		
 		return null;
 	}
 
