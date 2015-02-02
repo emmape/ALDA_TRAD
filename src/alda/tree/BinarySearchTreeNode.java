@@ -104,13 +104,13 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 				if(left == null){
 					return false;
 				}else{
-					return contains(left.data);
+					return left.contains(data);
 				}
 			}else{
 				if(right == null){
 					return false;
 				}else{
-					return contains(right.data);
+					return right.contains(data);
 				}
 			}
 		}
