@@ -16,6 +16,7 @@ package alda.tree;
  * @author henrikbe
  * @author Elise Edette (tero0337) tero0337@student.su.se
  * @author Emma Persson (empe5691)
+ * @author Aframyeos Rohoum (afro0793)
  * 
  * @param <T>
  */
