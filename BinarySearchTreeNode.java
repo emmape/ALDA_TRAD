@@ -14,6 +14,7 @@ package alda.tree;
  * </ul>
  * 
  * @author henrikbe
+ * @author Elise Edette (tero0337) tero0337@student.su.se
  * 
  * @param <T>
  */
