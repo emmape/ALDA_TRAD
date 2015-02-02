@@ -38,7 +38,23 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 	 * @return true om en ny nod lades till tr�det.
 	 */
 	public boolean add(T data) {
-		return false;
+		if(this.data == data){
+			return false;
+		}else if(this.data.compareTo(data) < 0){
+			if(left == null){
+				left = new BinarySearchTreeNode<T>(data);
+				return true;
+			}else{
+				return left.add(data);
+			}
+		}else{
+			if(right == null){
+				right = new BinarySearchTreeNode<T>(data);
+				return true;
+			}else{
+				return right.add(data);
+			}
+		}
 	}
 
 	/**
