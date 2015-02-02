@@ -131,9 +131,13 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 	 */
 	public int depth() {
 		if(left == null && right == null){
-			return 1;
+			return 0;
 		}else{
-			return (left == null ? 0 : left.size()) + (right == null ? 0 : right.size());
+			if((left == null ? 0 : left.depth()) < (right == null ? 0 : right.depth())){
+				return 1 + right.depth();
+			}else{
+				return 1 + left.depth();
+			}
 		}
 	}
 
