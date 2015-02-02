@@ -150,6 +150,12 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 	 * @return str�ngrepresentationen f�r det (sub)tr�d som noden utg�r root i.
 	 */
 	public String toString() {
-		return "";
+		String retval, sleft;
+		retval = (right == null ? "" : right.toString());
+		retval += (retval != "" && data != "" ? ", " + data : "" + data);
+		sleft = (left == null ? "" :  left.toString());
+		retval += (retval != "" && sleft != "" ? ", " + sleft : "" + sleft);
+		
+		return retval;
 	}
 }
