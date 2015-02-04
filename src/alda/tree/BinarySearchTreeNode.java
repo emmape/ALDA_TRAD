@@ -21,7 +21,6 @@ package alda.tree;
  * @param <T>
  */
 public class BinarySearchTreeNode<T extends Comparable<T>> {
-	BinarySearchTreeNode root;
 
 	private T data;
 	private BinarySearchTreeNode<T> left;
