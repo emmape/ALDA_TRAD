@@ -84,7 +84,28 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 	 */
 	public BinarySearchTreeNode<T> remove(T data) {
 		
-		return null;
+		return remove(data, this);
+	}
+	
+	//Att ta bort en Node
+	private BinarySearchTreeNode<T> remove(T data, BinarySearchTreeNode<T> typ) {
+		if (typ == null || data == null)
+			return null;
+		int compareResult = data.compareTo(typ.data);
+
+		if (compareResult < 0)
+			typ.left = remove(data, typ.left);
+		else if (compareResult > 0)
+			typ.right = remove(data, typ.right);
+		else if (typ.left != null && typ.right != null) {
+			typ.data = typ.right.findMin();
+			typ.right = remove(typ.data, typ.right);
+		} 
+		else {
+			
+			typ = ( typ.left != null ) ? typ.left : typ.right;
+		}
+		return typ;
 	}
 
 	/**
