@@ -82,30 +82,27 @@ public class BinarySearchTreeNode<T extends Comparable<T>> {
 	 *            elementet som ska tas bort ur tr�det.
 	 * @return en referens till nodens subtr�d efter borttaget.
 	 */
-	public BinarySearchTreeNode<T> remove(T data) {
+	public BinarySearchTreeNode<T> remove(T data){
+		int comp = data.compareTo(this.data);
 		
-		return remove(data, this);
-	}
-	
-	//Att ta bort en Node
-	private BinarySearchTreeNode<T> remove(T data, BinarySearchTreeNode<T> typ) {
-		if (typ == null || data == null)
-			return null;
-		int compareResult = data.compareTo(typ.data);
-
-		if (compareResult < 0)
-			typ.left = remove(data, typ.left);
-		else if (compareResult > 0)
-			typ.right = remove(data, typ.right);
-		else if (typ.left != null && typ.right != null) {
-			typ.data = typ.right.findMin();
-			typ.right = remove(typ.data, typ.right);
-		} 
-		else {
-			
-			typ = ( typ.left != null ) ? typ.left : typ.right;
+		if(comp < 0){
+			if(left != null)
+				left =  left.remove(data);
+		}else if(comp > 0){
+			if(right != null)
+				right = right.remove(data);
+		}else if(this.left != null && this.right != null){
+			this.data = right.findMin();
+			right = right.remove(this.data);
+		}else{
+			if(left != null){
+				return left;
+			}else{
+				return right;
+			}
 		}
-		return typ;
+		
+		return this;
 	}
 
 	/**
